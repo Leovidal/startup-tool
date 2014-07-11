@@ -11,13 +11,12 @@ function MainController($scope, $localStorage) {
         {container: "value-proposition", data: []},
         {container: "customer-relationships", data: []},
         {container: "channels", data: []},
-        {container: "customer-segment", data: []},
+        {container: "customer-segments", data: []},
         {container: "cost-structure", data: []},
         {container: "revenue-streams", data: []}]
     });
 
   $scope.init = function () {
-      debugger
     if (localStorage.getItem("bm")) {
         $scope.items = JSON.parse(localStorage.getItem("bm"));
     }
@@ -29,7 +28,7 @@ function MainController($scope, $localStorage) {
         {container: "value-proposition", data: []},
         {container: "customer-relationships", data: []},
         {container: "channels", data: []},
-        {container: "customer-segment", data: []},
+        {container: "customer-segments", data: []},
         {container: "cost-structure", data: []},
         {container: "revenue-streams", data: []}];
 
@@ -40,7 +39,6 @@ function MainController($scope, $localStorage) {
 
     //$scope.init();
 	$scope.add = function () {
-		
 		angular.forEach($scope.$storage.items, function(item) {
 			if (item.container == $scope.bmcontainer) item.data.push({text: $scope.text, status: true});
 		});

@@ -1,7 +1,7 @@
 ﻿<!doctype html>
 <html lang="en" ng-app="bmc">
 <head>
-    <base href="http://www.startuptool.co/">
+    <!--<base href="http://www.startuptool.co/">-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Startup Tool | The Business Model Canvas">
@@ -11,9 +11,10 @@
     <title>Bussiness Model Canvas - StartUpTool</title>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,600,700' rel='stylesheet' type='text/css'>
+    <link href="css/bmc.css" rel="stylesheet" />
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <link href="css/bmc.css" rel="stylesheet" />
     <script src="js/angular.min.js"></script>
     <script src="js/ngStorage.min.js"></script>
     <script src="js/ui-bootstrap-tpls-0.11.0.min.js"></script>
@@ -21,14 +22,13 @@
 </head>
 <body ng-controller="MainController">
 <div id="fb-root"></div>
-<script>
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/bg_BG/sdk.js#xfbml=1&appId=343483469014039&version=v2.0";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/bg_BG/sdk.js#xfbml=1&appId=223769534315088&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <div class="row">
     <h1 class="page-header center">The Business Model Canvas</h1>
 </div>
@@ -45,7 +45,7 @@
                         <option value="key-partners">Key Partners</option>
                         <option value="key-activities">Key Activities</option>
                         <option value="key-resources">Key Resources</option>
-                        <option value="value-propositions">Value Propositions</option>
+                        <option value="value-proposition">Value Proposition</option>
                         <option value="customer-relationships">Customer Relationships</option>
                         <option value="channels">Channels</option>
                         <option value="customer-segments">Customer Segments</option>
@@ -134,7 +134,7 @@
                     </li>
                 </ul>
             </div>
-            <div id="channels" class="short">
+            <div id="channels_" class="short">
                 <h4 class="page-header center">Channels <i class="fa fa-fw fa-road pull-right"></i> </h4>
                 <ul id='channels' ng-repeat="item in $storage.items" ng-if="item.container == 'channels'">
                     <li ng-repeat="data in item.data">
@@ -151,7 +151,7 @@
         <div class="col-sm-2">
             <div id="customer_segments" class="tall">
                 <h4 class="page-header center">Customer Segments <i class="fa fa-fw fa-user pull-right"></i> </h4>
-                <ul id='customer-segment' ng-repeat="item in $storage.items" ng-if="item.container == 'customer-segment'">
+                <ul id='customer-segments' ng-repeat="item in $storage.items" ng-if="item.container == 'customer-segments'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
                         {{ data.text }}
@@ -206,11 +206,11 @@
             <p>
                 <a href="http://www.startuptool.co">StartUpTool.co</a> Business Model Canvas |
                 <a href="https://www.facebook.com/startuptool">Facebook</a> |
-                <a href="https://plus.google.com/111500126584763283703" rel="publisher">Google+</a> |
+                <a href="https://www.google.com/+StartuptoolCo" rel="publisher">Google+</a> |
                 <a href="https://github.com/hvalyavicharski/startuptool">GitHub</a>
             </p>
             <p>
-            <div class="fb-follow" data-href="https://www.facebook.com/startuptool" data-colorscheme="light" data-layout="button_count" data-show-faces="true"></div>
+            <div class="fb-like" data-href="http://facebook.com/startuptool" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
             <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="300"></div>
             </p>
         </div>
@@ -240,6 +240,6 @@
     })();
 </script>
 
-<!-- Alfa version -->
+<!-- Alfa version 0.2014.7.11 -->
 </body>
 </html>
