@@ -1,11 +1,245 @@
-﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+﻿<!doctype html>
+<html lang="en" ng-app="bmc">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <base href="http://www.startuptool.co/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Startup Tool | The Business Model Canvas">
+    <meta name="keywords" content="Startup Tool, The Business Model Canvas">
+    <!-- Bing Webmaster-->
+    <meta name="msvalidate.01" content="84D86580376A3F46DE85F11FF76E5FDF" />
+    <title>Bussiness Model Canvas - StartUpTool</title>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link href="css/bmc.css" rel="stylesheet" />
+    <script src="js/angular.min.js"></script>
+    <script src="js/ngStorage.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <script src="js/bm.js"></script>
 </head>
-<body>
-    vfvd
+<body ng-controller="MainController">
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/bg_BG/sdk.js#xfbml=1&appId=343483469014039&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+<div class="row">
+    <h1 class="page-header center">The Business Model Canvas</h1>
+</div>
+<div class="row">
+    <div class="container">
+        <form class="form form-horizontal" role="form" id="itemForm">
+            <div class="form-group">
+                <div class="col-sm-4">
+                    <input type="text" id="item" name="item" class="form-control input-lg ttp" ng-model="text" placeholder="Type item name" title="Type here the item you want to add" required="required">
+                </div>
+                <div class="col-sm-4">
+                    <select id="section" name="section" class="form-control input-lg ttp" title="Select the section where you want to add the item" required="required" ng-model="bmcontainer">
+                        <option value="">Select section</option>
+                        <option value="key-partners">Key Partners</option>
+                        <option value="key-activities">Key Activities</option>
+                        <option value="key-resources">Key Resources</option>
+                        <option value="value-propositions">Value Propositions</option>
+                        <option value="customer-relationships">Customer Relationships</option>
+                        <option value="channels">Channels</option>
+                        <option value="customer-segments">Customer Segments</option>
+                        <option value="cost-structure">Cost Structure</option>
+                        <option value="revenue-streams">Revenue Streams</option>
+                    </select>
+                </div>
+                <div class="col-sm-4 center">
+                    <input type="submit" class="btn btn-lg btn-default ttp" title="Insert the item" value="Add Item" ng-click="add()">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="firstRow">
+    <div class="row">
+        <div class="col-sm-2">
+            <div id="key_partners" class="tall">
+                <h4 class="page-header center">Key Partners <i class="fa fa-fw fa-users pull-right"></i> </h4>
+                <ul id='key-partners' ng-repeat="item in $storage.items" ng-if="item.container == 'key-partners'">
+                    <li ng-repeat="data in item.data">
+                        <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
+                        <div class="item-{{ data.status }}">{{ data.text }}</div>
+                        <div>
+                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 0)"></span>
+                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div id="key_activities" class="short">
+                <h4 class="page-header center">Key Activities <i class="fa fa-fw fa-gears pull-right"></i> </h4>
+                <ul id='key-activities' ng-repeat="item in $storage.items" ng-if="item.container == 'key-activities'">
+                    <li ng-repeat="data in item.data">
+                        <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
+                        {{ data.text }}
+                        <div>
+                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 1)"></span>
+                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="key_resources" class="short">
+                <h4 class="page-header center">Key Resources <i class="fa fa-fw fa-money pull-right"></i> </h4>
+                <ul id='key-resources' ng-repeat="item in $storage.items" ng-if="item.container == 'key-resources'">
+                    <li ng-repeat="data in item.data">
+                        <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
+                        {{ data.text }}
+                        <div>
+                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 2)"></span>
+                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div id="value_propositions" class="tall">
+                <h4 class="page-header center">Value Propositions <i class="fa fa-fw fa-paragraph pull-right"></i> </h4>
+                <ul id='value-proposition' ng-repeat="item in $storage.items" ng-if="item.container == 'value-proposition'">
+                    <li ng-repeat="data in item.data">
+                        <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
+                        {{ data.text }}
+                        <div>
+                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 3)"></span>
+                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div id="customer_relationships" class="short">
+                <h4 class="page-header center">Customer Relationships <i class="fa fa-fw fa-heart pull-right"></i> </h4>
+                <ul id='customer-relationships' ng-repeat="item in $storage.items" ng-if="item.container == 'customer-relationships'">
+                    <li ng-repeat="data in item.data">
+                        <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
+                        {{ data.text }}
+                        <div>
+                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 4)"></span>
+                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="channels" class="short">
+                <h4 class="page-header center">Channels <i class="fa fa-fw fa-road pull-right"></i> </h4>
+                <ul id='channels' ng-repeat="item in $storage.items" ng-if="item.container == 'channels'">
+                    <li ng-repeat="data in item.data">
+                        <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
+                        {{ data.text }}
+                        <div>
+                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 5)"></span>
+                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div id="customer_segments" class="tall">
+                <h4 class="page-header center">Customer Segments <i class="fa fa-fw fa-user pull-right"></i> </h4>
+                <ul id='customer-segment' ng-repeat="item in $storage.items" ng-if="item.container == 'customer-segment'">
+                    <li ng-repeat="data in item.data">
+                        <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
+                        {{ data.text }}
+                        <div>
+                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 6)"></span>
+                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="secondRow">
+    <div class="row">
+        <div class="col-sm-6">
+            <div id="cost_structure" class="short">
+                <h4 class="page-header center">Cost Structure <i class="fa fa-fw fa-credit-card pull-right"></i> </h4>
+                <ul id='cost-structure' ng-repeat="item in $storage.items" ng-if="item.container == 'cost-structure'">
+                    <li ng-repeat="data in item.data">
+                        <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
+                        {{ data.text }}
+                        <div>
+                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 7)"></span>
+                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div id="revenue_streams" class="short">
+                <h4 class="page-header center">Revenue Streams <i class="fa fa-fw fa-dollar pull-right"></i> </h4>
+                <ul id='revenue-streams' ng-repeat="item in $storage.items" ng-if="item.container == 'revenue-streams'">
+                    <li ng-repeat="data in item.data">
+                        <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
+                        {{ data.text }}
+                        <div>
+                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 8)"></span>
+                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="row">
+        <div class="col-lg-12">
+            <p>
+                <a href="http://www.startuptool.co">StartUpTool.co</a> Business Model Canvas |
+                <a href="https://www.facebook.com/startuptool">Facebook</a> |
+                <a href="https://plus.google.com/111500126584763283703" rel="publisher">Google+</a> |
+                <a href="https://github.com/hvalyavicharski/startuptool">GitHub</a>
+            </p>
+            <p>
+            <div class="fb-follow" data-href="https://www.facebook.com/startuptool" data-colorscheme="light" data-layout="button_count" data-show-faces="true"></div>
+            <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="300"></div>
+            </p>
+        </div>
+    </div>
+</footer>
+<!-- Google Analytics -->
+<script type="text/javascript">
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-21208252-23', 'startuoptool.co');
+    ga('send', 'pageview');
+</script>
+
+<!-- Google Plus button -->
+<script type="text/javascript">
+    window.___gcfg = { lang: 'en' };
+
+    (function () {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/platform.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+</script>
+
+<!-- Alfa version -->
 </body>
 </html>

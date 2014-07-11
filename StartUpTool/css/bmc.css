@@ -1,0 +1,51 @@
+   #wrapper {
+            width: 99%;
+            margin: 0px auto;
+        }
+
+        .container {
+            width: 96%;
+            margin: 0px auto;
+        }
+
+        .row {
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
+
+        .short {
+            min-height: 200px;
+            border: 1px solid #555753;
+            padding: 10px;
+        }
+
+        .tall {
+            min-height: 400px;
+            border: 1px solid #555753;
+            padding: 10px;
+        }
+
+        .col-sm-2, .col-sm-3, .col-sm-6 {
+            padding: 0px !important;
+        }
+
+        .col-sm-4 {
+            margin-top: 10px;
+        }
+
+        h1, h4 {
+            margin-top: 0px !important;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        a:link, a:visited, a:hover {
+            color: #cc0000;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style-type: none;
+        }
