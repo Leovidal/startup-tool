@@ -40,7 +40,7 @@ function MainController($scope, $localStorage) {
     //$scope.init();
 	$scope.add = function () {
 		angular.forEach($scope.$storage.items, function(item) {
-			if (item.container == $scope.bmcontainer) item.data.push({text: $scope.text, status: true});
+			if (item.container == $scope.bmcontainer) item.data.push({text: $scope.text, status: false});
 		});
 	};
 

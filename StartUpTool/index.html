@@ -1,14 +1,14 @@
 ﻿<!doctype html>
 <html lang="en" ng-app="bmc">
 <head>
-    <!--<base href="http://www.startuptool.co/">-->
+    <base href="http://www.startuptool.co/">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Startup Tool | The Business Model Canvas">
-    <meta name="keywords" content="Startup Tool, The Business Model Canvas">
+    <meta name="description" content="Startup Tool - open source tool for startups">
+    <meta name="keywords" content="Startup Tool, Business Model Canvas, Startup, Lean Startup">
     <!-- Bing Webmaster-->
     <meta name="msvalidate.01" content="84D86580376A3F46DE85F11FF76E5FDF" />
-    <title>Bussiness Model Canvas - StartUpTool</title>
+    <title>StartUpTool - Bussiness Model Canvas</title>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,600,700' rel='stylesheet' type='text/css'>
@@ -30,7 +30,7 @@
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <div class="row">
-    <h1 class="page-header center">The Business Model Canvas</h1>
+    <h1 class="page-header center">Business Model Canvas</h1>
 </div>
 <div class="row">
     <div class="container">
@@ -64,15 +64,12 @@
     <div class="row">
         <div class="col-sm-2">
             <div id="key_partners" class="tall">
-                <h4 class="page-header center">Key Partners <i class="fa fa-fw fa-users pull-right"></i> </h4>
+                <h4 class="page-header center">Key Partners <span class="fa fa-fw fa-users pull-right"></span> </h4>
                 <ul id='key-partners' ng-repeat="item in $storage.items" ng-if="item.container == 'key-partners'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
-                        <div class="item-{{ data.status }}">{{ data.text }}</div>
-                        <div>
-                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 0)"></span>
-                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
-                        </div>
+                        <span class="item item-{{ data.status }}">{{ data.text }}</span>
+                            <span class="glyphicon glyphicon-remove remove" ng-click="remove($index, 0)"></span>
                     </li>
                 </ul>
             </div>
@@ -83,12 +80,9 @@
                 <ul id='key-activities' ng-repeat="item in $storage.items" ng-if="item.container == 'key-activities'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
-                        {{ data.text }}
-                        <div>
-                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 1)"></span>
-                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
-                        </div>
-                    </li>
+                        <span class="item-{{ data.status }}">{{ data.text }}</span>
+                            <span class="glyphicon glyphicon-remove remove" ng-click="remove($index, 1)"></span>
+                     </li>
                 </ul>
             </div>
             <div id="key_resources" class="short">
@@ -96,11 +90,8 @@
                 <ul id='key-resources' ng-repeat="item in $storage.items" ng-if="item.container == 'key-resources'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
-                        {{ data.text }}
-                        <div>
-                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 2)"></span>
-                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
-                        </div>
+                        <span class="item-{{ data.status }}">{{ data.text }}</span>
+                            <span class="glyphicon glyphicon-remove remove" ng-click="remove($index, 2)"></span>
                     </li>
                 </ul>
             </div>
@@ -111,11 +102,8 @@
                 <ul id='value-proposition' ng-repeat="item in $storage.items" ng-if="item.container == 'value-proposition'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
-                        {{ data.text }}
-                        <div>
-                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 3)"></span>
-                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
-                        </div>
+                        <span class="item item-{{ data.status }}">{{ data.text }}</span>
+                            <span class="glyphicon glyphicon-remove remove" ng-click="remove($index, 3)"></span>
                     </li>
                 </ul>
             </div>
@@ -126,11 +114,8 @@
                 <ul id='customer-relationships' ng-repeat="item in $storage.items" ng-if="item.container == 'customer-relationships'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
-                        {{ data.text }}
-                        <div>
-                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 4)"></span>
-                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
-                        </div>
+                        <span class="item item-{{ data.status }}">{{ data.text }}</span>
+                            <span class="glyphicon glyphicon-remove remove" ng-click="remove($index, 4)"></span>
                     </li>
                 </ul>
             </div>
@@ -139,11 +124,8 @@
                 <ul id='channels' ng-repeat="item in $storage.items" ng-if="item.container == 'channels'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
-                        {{ data.text }}
-                        <div>
-                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 5)"></span>
-                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
-                        </div>
+                        <span class="item item-{{ data.status }}">{{ data.text }}</span>
+                            <span class="glyphicon glyphicon-remove remove" ng-click="remove($index, 5)"></span>
                     </li>
                 </ul>
             </div>
@@ -154,11 +136,8 @@
                 <ul id='customer-segments' ng-repeat="item in $storage.items" ng-if="item.container == 'customer-segments'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
-                        {{ data.text }}
-                        <div>
-                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 6)"></span>
-                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
-                        </div>
+                        <span class="item item-{{ data.status }}">{{ data.text }}</span>
+                            <span class="glyphicon glyphicon-remove remove" ng-click="remove($index, 6)"></span>
                     </li>
                 </ul>
             </div>
@@ -173,11 +152,8 @@
                 <ul id='cost-structure' ng-repeat="item in $storage.items" ng-if="item.container == 'cost-structure'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
-                        {{ data.text }}
-                        <div>
-                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 7)"></span>
-                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
-                        </div>
+                        <span class="item item-{{ data.status }}">{{ data.text }}</span>
+                            <span class="glyphicon glyphicon-remove remove" ng-click="remove($index, 7)"></span>
                     </li>
                 </ul>
             </div>
@@ -188,11 +164,8 @@
                 <ul id='revenue-streams' ng-repeat="item in $storage.items" ng-if="item.container == 'revenue-streams'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
-                        {{ data.text }}
-                        <div>
-                            <span class="glyphicon glyphicon-remove" ng-click="remove($index, 8)"></span>
-                            <span class="glyphicon glyphicon-move" ng-click="move()"></span>
-                        </div>
+                        <span class="item item-{{ data.status }}">{{ data.text }}</span>
+                            <span class="glyphicon glyphicon-remove remove" ng-click="remove($index, 8)"></span>
                     </li>
                 </ul>
             </div>
@@ -207,6 +180,7 @@
                 <a href="http://www.startuptool.co">StartUpTool.co</a> Business Model Canvas |
                 <a href="https://www.facebook.com/startuptool">Facebook</a> |
                 <a href="https://www.google.com/+StartuptoolCo" rel="publisher">Google+</a> |
+                <a href="https://twitter.com/startup_tool">Twitter</a> |
                 <a href="https://github.com/hvalyavicharski/startuptool">GitHub</a>
             </p>
             <p>

@@ -65,3 +65,14 @@ h4 {
 footer {
     font-weight: 300;
 }
+
+.item {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+.item-true {
+    text-decoration:line-through;
+}
+
+.remove {
+    color: red;
+}
