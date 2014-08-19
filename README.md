@@ -15,7 +15,7 @@ If you like the project you can help it as:
 * give ideas and feedback
 * make a donation
 
-#####[Visit project website](http://www.startuptool.co/)
+#####[Visit project website](http://www.startuptool.net/)
 
 
 
