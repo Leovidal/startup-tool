@@ -1,3 +1,59 @@
+@font-face {
+    font-family: 'icomoon';
+    src:    url('../fonts/icomoon.eot?sf3wm3');
+    src:    url('../fonts/icomoon.eot?sf3wm3#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?sf3wm3') format('truetype'),
+        url('../fonts/icomoon.woff?sf3wm3') format('woff'),
+        url('../fonts/icomoon.svg?sf3wm3#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-channels:before {
+    content: "\e900";
+}
+.icon-cost-structure:before {
+    content: "\e901";
+}
+.icon-customer-relationships:before {
+    content: "\e902";
+}
+.icon-customer-segments:before {
+    content: "\e903";
+}
+.icon-key-activities:before {
+    content: "\e904";
+}
+.icon-key-partners:before {
+    content: "\e905";
+}
+.icon-key-resources:before {
+    content: "\e906";
+}
+.icon-revenue-streams:before {
+    content: "\e907";
+}
+.icon-value-proposition:before {
+    content: "\e908";
+}
+
+
+
 body {
     font-family: 'Open Sans', Arial, serif;
 }
