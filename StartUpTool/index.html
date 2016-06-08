@@ -1,10 +1,9 @@
 ﻿<!doctype html>
 <html lang="en" ng-app="bmc">
 <head>
-    <base href="http://www.startuptool.co/">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Startup Tool - open source tool for startups">
+    <meta name="description" content="Startup Tool is digital tool for startups. Business Model Canvas">
     <meta name="keywords" content="Startup Tool, Business Model Canvas, Startup, Lean Startup">
     <!-- Bing Webmaster-->
     <meta name="msvalidate.01" content="84D86580376A3F46DE85F11FF76E5FDF" />
@@ -64,7 +63,7 @@
     <div class="row">
         <div class="col-sm-2">
             <div id="key_partners" class="tall">
-                <h4 class="page-header center">Key Partners <span class="fa fa-fw fa-users pull-right"></span> </h4>
+                <h4 class="page-header center">Key Partners <span class="icon-key-partners pull-right"></span></h4>
                 <ul id='key-partners' ng-repeat="item in $storage.items" ng-if="item.container == 'key-partners'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
@@ -76,7 +75,7 @@
         </div>
         <div class="col-sm-3">
             <div id="key_activities" class="short">
-                <h4 class="page-header center">Key Activities <i class="fa fa-fw fa-gears pull-right"></i> </h4>
+                <h4 class="page-header center">Key Activities <span class="icon-key-activities pull-right"></span></h4>
                 <ul id='key-activities' ng-repeat="item in $storage.items" ng-if="item.container == 'key-activities'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
@@ -86,7 +85,7 @@
                 </ul>
             </div>
             <div id="key_resources" class="short">
-                <h4 class="page-header center">Key Resources <i class="fa fa-fw fa-money pull-right"></i> </h4>
+                <h4 class="page-header center">Key Resources <span class="icon-key-resources pull-right"></span></h4>
                 <ul id='key-resources' ng-repeat="item in $storage.items" ng-if="item.container == 'key-resources'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
@@ -98,7 +97,7 @@
         </div>
         <div class="col-sm-2">
             <div id="value_propositions" class="tall">
-                <h4 class="page-header center">Value Propositions <i class="fa fa-fw fa-paragraph pull-right"></i> </h4>
+                <h4 class="page-header center">Value Propositions <span class="icon-value-proposition pull-right"></span></h4>
                 <ul id='value-proposition' ng-repeat="item in $storage.items" ng-if="item.container == 'value-proposition'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
@@ -110,7 +109,7 @@
         </div>
         <div class="col-sm-3">
             <div id="customer_relationships" class="short">
-                <h4 class="page-header center">Customer Relationships <i class="fa fa-fw fa-heart pull-right"></i> </h4>
+                <h4 class="page-header center">Customer Relationships <span class="icon-customer-relationships pull-right"></span></h4>
                 <ul id='customer-relationships' ng-repeat="item in $storage.items" ng-if="item.container == 'customer-relationships'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
@@ -120,7 +119,7 @@
                 </ul>
             </div>
             <div id="channels_" class="short">
-                <h4 class="page-header center">Channels <i class="fa fa-fw fa-road pull-right"></i> </h4>
+                <h4 class="page-header center">Channels <span class="icon-channels pull-right"></span></h4>
                 <ul id='channels' ng-repeat="item in $storage.items" ng-if="item.container == 'channels'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
@@ -132,7 +131,7 @@
         </div>
         <div class="col-sm-2">
             <div id="customer_segments" class="tall">
-                <h4 class="page-header center">Customer Segments <i class="fa fa-fw fa-user pull-right"></i> </h4>
+                <h4 class="page-header center">Customer Segments <span class="icon-customer-segments pull-right"></span></h4>
                 <ul id='customer-segments' ng-repeat="item in $storage.items" ng-if="item.container == 'customer-segments'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
@@ -148,7 +147,7 @@
     <div class="row">
         <div class="col-sm-6">
             <div id="cost_structure" class="short">
-                <h4 class="page-header center">Cost Structure <i class="fa fa-fw fa-credit-card pull-right"></i> </h4>
+                <h4 class="page-header center">Cost Structure <span class="icon-cost-structure pull-right"></span> </h4>
                 <ul id='cost-structure' ng-repeat="item in $storage.items" ng-if="item.container == 'cost-structure'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
@@ -160,7 +159,7 @@
         </div>
         <div class="col-sm-6">
             <div id="revenue_streams" class="short">
-                <h4 class="page-header center">Revenue Streams <i class="fa fa-fw fa-dollar pull-right"></i> </h4>
+                <h4 class="page-header center">Revenue Streams <span class="icon-revenue-streams pull-right"></span> </h4>
                 <ul id='revenue-streams' ng-repeat="item in $storage.items" ng-if="item.container == 'revenue-streams'">
                     <li ng-repeat="data in item.data">
                         <input type="checkbox" ng-checked="{{ data.status }}" ng-model="data.status" />
@@ -177,9 +176,9 @@
     <div class="row">
         <div class="col-lg-12">
             <p>
-                <a href="http://www.startuptool.co">StartUpTool.co</a> Business Model Canvas |
+                <a href="http://www.startuptool.net">Startup Tool</a> Business Model Canvas |
                 <a href="https://www.facebook.com/startuptool">Facebook</a> |
-                <a href="https://www.google.com/+StartuptoolCo" rel="publisher">Google+</a> |
+                <a href="https://www.google.com/+StartuptoolCo" rel="Publisher">Google+</a> |
                 <a href="https://twitter.com/startup_tool">Twitter</a> |
                 <a href="https://github.com/hvalyavicharski/startuptool">GitHub</a>
             </p>
@@ -191,16 +190,15 @@
     </div>
 </footer>
 <!-- Google Analytics -->
-<script type="text/javascript">
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-21208252-23', 'startuoptool.co');
-    ga('send', 'pageview');
+  ga('create', 'UA-21208252-3', 'auto');
+  ga('send', 'pageview');
+
 </script>
 
 <!-- Google Plus button -->
