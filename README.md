@@ -15,7 +15,9 @@ If you like the project you can help it as:
 * give ideas and feedback
 * make a donation
 
-#####[Visit project website](http://www.startuptool.net/)
+#####[Startup Tools](https://startuptool.net/)
+#####[Business Model Canvas](https://startuptool.net/business-model-canvas)
+#####[Project Management Tool](https://startuptool.net/projects)
 
 
 
